@@ -20,10 +20,10 @@
                         <p class="directory_content">{{address1}}</p>
                         <p class="directory_content">{{city}}, {{province_state}} {{postal_code}}</p>
                         <br>
-                    <p class="directory_content"><strong>Jeff Gracey</strong> 
-                    <br>Senior Property Manager
-                    <br>(416) 757-7770 ext.106
-                    <br><a href="mailto:jgracey@bentallkennedy.com">jgracey@bentallkennedy.com</a></p>
+                    <p class="directory_content"><strong>Anne Vit</strong> 
+                    <br>General Manager
+                    <br>(416) 236 1669 ext.224
+                    <br><a href="mailto:avit@bentallkennedy.com">avit@bentallkennedy.com</a></p>
                     <br>
                     <p class="directory_content"><strong>Dev Hubraj</strong> 
                     <br>Vice President, Leasing
@@ -97,10 +97,10 @@
                     <p class="directory_content">{{address1}}</p>
                     <p class="directory_content">{{city}}, {{province_state}} {{postal_code}}</p>
                     <br>
-                        <p class="directory_content"><strong>Jeff Gracey</strong> 
-                    <br>Senior Property Manager
-                    <br>(416) 757-7770 ext.106
-                    <br><a href="mailto:jgracey@bentallkennedy.com">jgracey@bentallkennedy.com</a></p>
+                          <p class="directory_content"><strong>Anne Vit</strong> 
+                    <br>General Manager
+                    <br>(416) 236 1669 ext.224
+                    <br><a href="mailto:avit@bentallkennedy.com">avit@bentallkennedy.com</a></p>
                     <br>
                    <p class="directory_content"><strong>Dev Hubraj</strong> 
                     <br>Vice President, Leasing
