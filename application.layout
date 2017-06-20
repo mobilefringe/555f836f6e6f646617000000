@@ -93,8 +93,8 @@
         });      
     });
     setEndPoint('//meadowvale.mallmaverick.com/api/v3/meadowvale/all.json');
-    sessionStorage.setItem('primary_locale', 'en-CA');
-    sessionStorage.setItem('secondary_locale', 'fr-CA');
+    // sessionStorage.setItem('primary_locale', 'en-CA');
+    // sessionStorage.setItem('secondary_locale', 'fr-CA');
 </script>
 <style>
     /*custom styles*/
