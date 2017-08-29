@@ -355,34 +355,23 @@
                             </div>
                             </li>
                             <li>
-                            <a  class="close-search list-group-item" style="">
-                                <small>
-                                    <span>Today's Hours </span>
-                                </small>
-                                <small class="pull-right" id="todays-hours-search">
-                                
-                                </small>
-                                <script id="todays_hours_search_template" type="x-tmpl-mustache/text">{% raw %}
-                                    <span style="{{is_open_css}};">
-                                        {{open_time_localized}} - {{close_time_localized}}
-                                    </span>
-                                    <span style="{{is_closed_css}};">
-                                        Closed
-                                    </span>
-                                </script>{% endraw %}
-                            </a>
+                                <a  class="close-search list-group-item" style="">
+                                    <small>
+                                        <span>Today's Hours </span>
+                                    </small>
+                                    <small class="pull-right" id="todays-hours-search"></small>
+                                    <script id="todays_hours_search_template" type="x-tmpl-mustache/text">{% raw %}
+                                        <span>{{hours}}</span>
+                                    </script>
+                                    {% endraw %}
+                                </a>
                             </li>
                         </ul>
                     </div>
-                 </div>
-                 
-                 
+                </div>
             </div>
         </div>
-        
-        
     </section>
-    
     <section class="site-map-section">
         <div class="bottom-site-map">
             <ul style="margin-bottom:0;padding:0">
@@ -484,7 +473,8 @@
             var propertyDetails = getPropertyDetails();
             renderPropertyLogo('#logo_template','#site_logo',propertyDetails);
             renderPropertyFooter('#footer_template','#footer_container',propertyDetails);
-            renderTodaysHours('#todays_hours_search_template','#todays-hours-search');
+            var hours = getTodaysHours();
+            renderHomeHours('#todays-hours-search','#todays_hours_search_template', hours);
             
         }
         function renderPropertyLogo(logo_template,site_logo,propertyDetails){
