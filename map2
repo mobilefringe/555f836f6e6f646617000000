@@ -124,15 +124,11 @@
         function renderAll (){
             var stores = getStoresList();
             // renderPageData('#landmark_container','#landmark_template',stores)
-            
             $("#loading_screen").hide();
             $("#main_content").show();
             // specify the type of map here. "png" or "svg"
             var maptype = "svg"
             renderMap(maptype);
-            
-            
-           
         }
         
         function renderStoreList(stores){
@@ -143,8 +139,6 @@
                 $("#svg_storelist_container").append('<option value="'+stores[i].x_coordinate+','+stores[i].y_coordinate+','+stores[i].svgmap_region+'">'+stores[i].name+'</option>') 
 
             }
-            
-            
         }
         
         function renderPageData(container, template, collection){
@@ -157,16 +151,12 @@
                 val.y_coordinate = val.y_coordinate + 5;
                 var rendered = Mustache.render(template_html,val);
                 item_rendered.push(rendered);
-    
             });
-            
             if (container == "#storelist_container") {
                 
             } else {
                $(container).show(); 
             }
-            
-            
             $(container).html(item_rendered.join(''));
         };
         
@@ -175,7 +165,6 @@
         var didPanZoom = false;
         if(navigator.appVersion.indexOf("MSIE 9.") == -1){
             $('#map').bind('mousemove', function(e){
-                //console.log(e.pageX+","+e.pageY);
                $('#pop-over').css({'top':e.pageY+20,'left':e.pageX-70});
             });
             var propertyDetails = getPropertyDetails();
@@ -196,39 +185,33 @@
                                     $("#pop-over-map-name").html(value.name);
                                     $("#pop-over-map-phone").html(value.phone);
                                 }
-                                          
                             });
                                 
                             //add the mouse up handler for hiding the pop over when done hovering
                             f.select(svg_id).mouseout(function() {
                                 this.removeClass("map-mouse-over");
                                 $("#pop-over").hide(0);
-                                
                             });
                                 
                             //add the mouse up function for when the user clicks a store
                             f.select(svg_id).mouseup(function() {
-                                
                                 if(!isMobile && !didPanZoom){
-                                    
                                     goToStore(value);
                                 }
                                 didPanZoom = false;
-                                      
                             });
                         }
                     });
                     s.append(f.select("svg"));
                 });
                 
-                
                 var startingMapTransform = 'scale(1)';
                 var startingPanX = 0;
                 var startingPanY = 0;
                 if(isMobile) {
-                        startingMapTransform = 'scale(.5)';
-                        startingPanX = 0;
-                        startingPanY = 0;
+                    startingMapTransform = 'scale(.5)';
+                    startingPanX = 0;
+                    startingPanY = 0;
                 }
                 
                 $( "#page_content" ).fadeIn( "fast", function() {
@@ -244,21 +227,19 @@
                         $zoomOut: $('.zoom-out'),
                         $zoomRange: $('.zoom-range'),
                         startTransform: startingMapTransform
-                        
-            
                     });
+                    
                     $("#map").panzoom("pan", startingPanX, startingPanY, { relative: true });
                     
                     panzoom.on('panzoomchange', function(e, panzoom, matrix, changed) {
-                      didPanZoom = true;
+                        didPanZoom = true;
                     });
                     
                     panzoom.on('panzoomend', function(e, panzoom, matrix, changed) {
-                      didPanZoom = false;
+                        didPanZoom = false;
                     });
                 });
                 renderStoreList(stores);
-               
             } else {
                 // $("#zControls").hide();
                 var propertyDetails = getPropertyDetails();
@@ -288,21 +269,18 @@
             	     	responsive_maintain_ratio: false
             		});
                 });
-                
                 renderStoreList(stores)
             }
 
                
-            }else{
+            } else {
                 $('#loading').hide();
                 $('#zControls').hide();
                 $('#map').hide();
                 $( "#page_content" ).fadeIn( "fast");
             }
         }
-        
-        
-   
+
     function goToStore(store_details){
         if(typeof(store_details) != 'undefined' && store_details != null){
             window.location.href = "/stores/"+store_details.slug;
@@ -345,7 +323,7 @@
         
     });
     
-     $("#svg_storelist_container").on('change', function() {
+    $("#svg_storelist_container").on('change', function() {
         coords = this.value.split(","); 
         id =  (coords[2])
         x = parseInt(coords[0]) - 11
@@ -355,12 +333,8 @@
         var matrix =  $("#map").panzoom("getMatrix");
         
         $("#map").panzoom("pan",x ,y, { relative: false });
-         
-     });
+    });
     
         loadMallData(renderAll);  
     });
-    
-    
-    
 </script>
